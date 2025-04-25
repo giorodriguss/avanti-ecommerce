@@ -6,6 +6,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <script src="/js/script.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -17,17 +18,20 @@
     <div class="bg-blue-600 text-white text-center py-2">
         Ganhe: R$10,00 de desconto no seu primeiro pedido. Utilize o cupom DESCONTO10
     </div>
-    <!-- Cabeçalho -->
-    <header class="bg-white shadow">
+     <!-- Cabeçalho -->
+     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center w-24 md:w-auto">
                 <img alt="Avanti Logo" class="h-6 md:h-8" src="images/logo.png"/>
             </div>
             
-            <div class="flex-1 mx-2 md:mx-4 min-w-0">
-                <input class="w-full border rounded-full px-3 py-1 text-sm md:text-base md:px-4 md:py-2"
+            <div class="flex-1 mx-2 md:mx-4 min-w-0 relative">
+                <input id="searchInput" class="w-full border rounded-full px-3 py-1 text-sm md:text-base md:px-4 md:py-2"
                        placeholder="Digite aqui o que você procura"
                        type="text"/>
+                <button id="searchButton" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
         
             <div class="flex items-center space-x-2 md:space-x-4">
@@ -35,6 +39,14 @@
                 <a class="text-gray-700 p-2" href="#">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
+            </div>
+        </div>
+        <!-- Mensagem de busca -->
+        <div id="searchResult" class="container mx-auto px-4 py-1 hidden">
+            <div class="flex justify-center"> 
+                <p class="text-gray-600 text-center"> 
+                    Você buscou por: <span id="searchTerm" class="font-semibold"></span>
+                </p>
             </div>
         </div>
     </header>
